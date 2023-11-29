@@ -1,29 +1,52 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
 
 func main() {
-	nums := []float64{1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7}
-	nums2 := []float64{10, 4, 2, 8, 24, 15, 9, 10, 0, 1, 2}
-	nums3 := []float64{80, 23, 3, 1, 8, 7, 14, 55, 72, 98, 46, 41, 20}
+	scanner := bufio.NewScanner(os.Stdin)
 
-	printResult(nums)
-	printResult(nums2)
-	printResult(nums3)
+	for true {
+		fmt.Println("\nEnter list of numbers separated by spaces (type q to quit)")
+		fmt.Print(">>> ")
+		scanner.Scan()
+	
+		input := scanner.Text()
+		input = strings.TrimSpace(input)
+	
+		if input == "" {
+			fmt.Println("Please type something")
+			continue
+		}
+	
+		if input == "q" {
+			break
+		}
+	
+		nums := strings.Split(input, " ")
+		convertedNums, err := convertToFloats(nums)
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+	
+		displayResult(convertedNums)
+	}
 }
 
-func printResult(nums []float64) {
-	fmt.Println("Numbers:", nums)
-	
+func displayResult(nums []float64) {
 	mean := mean(nums...)
 	median := median(nums...)
 	mode := mode(nums...)
 
-	fmt.Println("\n=============== RESULT ===============")
-	fmt.Println("Mean:", mean)
-	fmt.Println("Median:", median)
-
-	fmt.Print("Mode: ")
+	fmt.Println("* Mean:", mean)
+	fmt.Println("* Median:", median)
+	fmt.Print("* Mode: ")
 	for index, num := range mode {
 		if (index == len(mode) - 1) {
 			fmt.Println(num)
@@ -31,7 +54,6 @@ func printResult(nums []float64) {
 			fmt.Print(num, ", ")
 		}
 	}
-	fmt.Printf("\n\n")
 }
 
 func mean(nums ...float64) float64 {
@@ -95,4 +117,18 @@ func sort(nums []float64) {
 		}
 		unsortedUntilIndex -= 1
 	}
+}
+
+func convertToFloats(slice []string) ([]float64, error) {
+	result := make([]float64, 0, len(slice))
+
+	for _, item := range slice {
+		convertedItem, err := strconv.ParseFloat(item, 64)
+		if err != nil {
+			return nil, fmt.Errorf("Unable to parse input, please type a number")
+		}
+		result = append(result, convertedItem)
+	}
+
+	return result, nil
 }
