@@ -20,9 +20,10 @@ This is a collection of mini programs in Go. I created this repo just to keep me
 
 ## Programs
 
-| **Program**                              | **Description**                            |
-| ---------------------------------------- | ------------------------------------------ |
-| [Mean, Median, Mode](./mean_median_mode) | Calculate mean, median, & mode of numbers. |
+| **Program**                              | **Description**                                                                        |
+| ---------------------------------------- | -------------------------------------------------------------------------------------- |
+| [Mean, Median, Mode](./mean_median_mode) | Calculate mean, median, & mode of numbers.                                             |
+| [Number Generator](./number_generator)   | Generate prime, even, odd, square, cubic, or Fibonacci numbers within a certain range. |
 
 ## Contributing
 
