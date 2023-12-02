@@ -16,15 +16,16 @@
 
 ## Description
 
-This is a collection of mini programs in Go. I created this repo just to keep me producing some code regularly, so I can be more familiar & fluent in Go.
+This is a collection of mini programs in Go. I created this repo just to keep me producing some code regularly, so I can be more familiar & fluent in Go. Feel free to give feedback on the code.
 
 ## Programs
 
-| **Program**                              | **Description**                                                                        |
-| ---------------------------------------- | -------------------------------------------------------------------------------------- |
-| [Mean, Median, Mode](./mean_median_mode) | Calculate mean, median, & mode of numbers.                                             |
-| [Number Generator](./number_generator)   | Generate prime, even, odd, square, cubic, or Fibonacci numbers within a certain range. |
-| [Link Checker](./link_checker)           | Check & get information about a URL.                                                   |
+| **Program**                              | **Description**                                                                       |
+| ---------------------------------------- | ------------------------------------------------------------------------------------- |
+| [Guess the Number](./guess_number)       | Play & guess the number that the computer thinks.                                     |
+| [Link Checker](./link_checker)           | Check & get information about a URL.                                                  |
+| [Mean, Median, Mode](./mean_median_mode) | Calculate mean, median, & mode of numbers.                                            |
+| [Number Generator](./number_generator)   | Generate prime, even, odd, square, cube, or Fibonacci numbers within a certain range. |
 
 ## Contributing
 
