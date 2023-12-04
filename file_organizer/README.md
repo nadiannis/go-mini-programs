@@ -17,10 +17,10 @@ organize D:/myfolder
 Output:
 
 ```
-3 document files moved
-1 other files moved
-No audio files moved
 6 image files moved
 2 video files moved
-1 compressed files moved
+3 document files moved
+No audio files moved
+1 compressed file moved
+1 other file moved
 ```

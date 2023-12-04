@@ -54,12 +54,12 @@ func moveFile(fileInfo fs.FileInfo, folderPath string) {
 func organizeFiles(folderPath string) {
 	folderItems := getFolderItems(folderPath)
 	numOfFiles := map[string]int{
-		"audio":     0,
-		"image":    0,
-		"video":    0,
-		"document": 0,
+		"audio":      0,
+		"image":      0,
+		"video":      0,
+		"document":   0,
 		"compressed": 0,
-		"other":    0,
+		"other":      0,
 	}
 
 	for _, folderItem := range folderItems {
@@ -105,8 +105,10 @@ func organizeFiles(folderPath string) {
 
 func displayNumOfFiles(numOfFiles map[string]int) {
 	for category, count := range numOfFiles {
-		if count > 0 {
+		if count > 1 {
 			fmt.Printf("%d %s files moved\n", count, category)
+		} else if count == 1 {
+			fmt.Printf("%d %s file moved\n", count, category)
 		} else {
 			fmt.Printf("No %s files moved\n", category)
 		}
