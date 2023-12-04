@@ -23,6 +23,7 @@ This is a collection of mini programs in Go. I created this repo just to keep me
 | **Program**                                | **Description**                                                                       |
 | ------------------------------------------ | ------------------------------------------------------------------------------------- |
 | [Black & White Image](./black_white_image) | Convert color image to black & white.                                                 |
+| [File Organizer](./file_organizer)         | Organize files in a folder based on type.                                             |
 | [Guess the Number](./guess_number)         | Play & guess the number that the computer thinks.                                     |
 | [Link Checker](./link_checker)             | Check & get information about a URL.                                                  |
 | [Mean, Median, Mode](./mean_median_mode)   | Calculate mean, median, & mode of numbers.                                            |
