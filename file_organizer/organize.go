@@ -14,6 +14,7 @@ func main() {
 		"image":    0,
 		"video":    0,
 		"document": 0,
+		"compressed": 0,
 		"other":    0,
 	}
 	folderPath := os.Args[1]
@@ -72,7 +73,7 @@ func organizeFiles(folderPath string, numOfFiles map[string]int) {
 			fileExt := filepath.Ext(fileInfo.Name())
 
 			switch fileExt {
-			case ".wav", ".mp3", "aac":
+			case ".wav", ".mp3", "aac", ".wma", ".m4a":
 				subFolderPath := filepath.Join(folderPath, "audio")
 				moveFile(fileInfo, subFolderPath)
 				numOfFiles["audio"] += 1
@@ -80,14 +81,18 @@ func organizeFiles(folderPath string, numOfFiles map[string]int) {
 				subFolderPath := filepath.Join(folderPath, "image")
 				moveFile(fileInfo, subFolderPath)
 				numOfFiles["image"] += 1
-			case ".mp4", ".avi", ".mov", ".mkv", ".flv", ".amv":
+			case ".mp4", ".avi", ".mov", ".mkv", ".flv", ".amv", ".wmv", ".m4v":
 				subFolderPath := filepath.Join(folderPath, "video")
 				moveFile(fileInfo, subFolderPath)
 				numOfFiles["video"] += 1
-			case ".doc", ".docx", ".xlsx", ".csv", ".txt", ".pdf", ".epub", ".odt":
+			case ".doc", ".docx", ".ppt", ".pptx", ".xlsx", ".csv", ".txt", ".rtf", ".pdf", ".epub", ".odt":
 				subFolderPath := filepath.Join(folderPath, "document")
 				moveFile(fileInfo, subFolderPath)
 				numOfFiles["document"] += 1
+			case ".zip", ".rar", ".pkg":
+				subFolderPath := filepath.Join(folderPath, "compressed")
+				moveFile(fileInfo, subFolderPath)
+				numOfFiles["compressed"] += 1
 			default:
 				subFolderPath := filepath.Join(folderPath, "other")
 				moveFile(fileInfo, subFolderPath)
