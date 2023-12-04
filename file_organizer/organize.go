@@ -9,18 +9,9 @@ import (
 )
 
 func main() {
-	numOfFiles := map[string]int{
-		"audio":     0,
-		"image":    0,
-		"video":    0,
-		"document": 0,
-		"compressed": 0,
-		"other":    0,
-	}
 	folderPath := os.Args[1]
 
-	organizeFiles(folderPath, numOfFiles)
-	displayNumberOfFiles(numOfFiles)
+	organizeFiles(folderPath)
 }
 
 func getFolderItems(path string) []fs.DirEntry {
@@ -60,8 +51,16 @@ func moveFile(fileInfo fs.FileInfo, folderPath string) {
 	}
 }
 
-func organizeFiles(folderPath string, numOfFiles map[string]int) {
+func organizeFiles(folderPath string) {
 	folderItems := getFolderItems(folderPath)
+	numOfFiles := map[string]int{
+		"audio":     0,
+		"image":    0,
+		"video":    0,
+		"document": 0,
+		"compressed": 0,
+		"other":    0,
+	}
 
 	for _, folderItem := range folderItems {
 		if !folderItem.IsDir() {
@@ -100,9 +99,11 @@ func organizeFiles(folderPath string, numOfFiles map[string]int) {
 			}
 		}
 	}
+
+	displayNumOfFiles(numOfFiles)
 }
 
-func displayNumberOfFiles(numOfFiles map[string]int) {
+func displayNumOfFiles(numOfFiles map[string]int) {
 	for category, count := range numOfFiles {
 		if count > 0 {
 			fmt.Printf("%d %s files moved\n", count, category)
