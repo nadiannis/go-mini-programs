@@ -28,6 +28,7 @@ This is a collection of mini programs in Go. I created this repo just to keep me
 | [Link Checker](./link_checker)             | Check & get information about a URL.                                                  |
 | [Mean, Median, Mode](./mean_median_mode)   | Calculate mean, median, & mode of numbers.                                            |
 | [Number Generator](./number_generator)     | Generate prime, even, odd, square, cube, or Fibonacci numbers within a certain range. |
+| [Send Email](./send_email)                 | Send email from the command-line.                                                     |
 
 ## Contributing
 
