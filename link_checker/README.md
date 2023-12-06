@@ -1,5 +1,9 @@
 # Link Checker
 
+Check & get information about a URL.
+
+## Usage
+
 ### Examples
 
 **Example 1**

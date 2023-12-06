@@ -1,5 +1,9 @@
 # Send Email
 
+Send email from the command-line.
+
+## Usage
+
 - Make a copy of `env.example` file & rename it to `.env`.
 
   Write the SMTP server host, SMTP server port, sender email, & sender password. I use a Gmail account to test sending the email.

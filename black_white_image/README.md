@@ -1,6 +1,10 @@
 # Black & White Image
 
-Compile the package first.
+Convert color image to black & white.
+
+## Usage
+
+Compile the program.
 
 ```sh
 go build convert.go

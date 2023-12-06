@@ -1,6 +1,10 @@
 # File Organizer
 
-Compile the package first.
+Organize files in a folder based on type.
+
+## Usage
+
+Compile the program.
 
 ```sh
 go build organize.go
