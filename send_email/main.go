@@ -9,11 +9,10 @@ import (
 	"net/mail"
 	"net/smtp"
 	"os"
+	"sendemail/pkg/env"
 	"strconv"
 	"strings"
 	"time"
-
-	"github.com/joho/godotenv"
 )
 
 type smtpServer struct {
@@ -28,17 +27,13 @@ type sender struct {
 }
 
 func main() {
-	if err := godotenv.Load(); err != nil {
-		log.Fatalln(err)
-	}
-
-	smtpPort, err := strconv.Atoi(os.Getenv("SMTP_PORT"))
+	smtpPort, err := strconv.Atoi(env.Getenv("SMTP_PORT"))
 	if err != nil {
 		log.Fatalln(err)
 	}
 
 	reader := bufio.NewReader(os.Stdin)
-	sender := newSender(os.Getenv("SENDER_EMAIL"), os.Getenv("SENDER_PASSWORD"), os.Getenv("SMTP_HOST"), smtpPort)
+	sender := newSender(env.Getenv("SENDER_EMAIL"), env.Getenv("SENDER_PASSWORD"), env.Getenv("SMTP_HOST"), smtpPort)
 
 	emails := getInput(reader, ">>> Recipient email (separate with ; if more than one):\n")
 	recipientEmails := strings.Split(emails, ";")
