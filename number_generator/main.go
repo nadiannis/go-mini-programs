@@ -10,8 +10,8 @@ import (
 )
 
 const mainMenuText = `
-===================== Generate Numbers =====================
-1 = Even | 2 = Odd | 3 = Square | 4 = Cube | 5 = Fibonacci
+=========================== Generate Numbers ===========================
+1 = Even | 2 = Odd | 3 = Square | 4 = Cube | 5 = Fibonacci | 6 = Prime
 `
 
 type parameter struct {
@@ -47,8 +47,10 @@ func main() {
 			promptMinMax(scanner, params, sequenceTypes[input], generateCubeNumbers)
 		case "fibonacci":
 			promptMinMax(scanner, params, sequenceTypes[input], generateFibonacciNumbers)
+		case "prime":
+			promptMinMax(scanner, params, sequenceTypes[input], generatePrimeNumbers)
 		default:
-			fmt.Println("\nInvalid sequence type. You can only type 1, 2, 3, 4, or 5.")
+			fmt.Println("\nInvalid sequence type. You can only type 1, 2, 3, 4, 5, or 6.")
 			continue
 		}
 	}
@@ -103,7 +105,7 @@ func generateSquareNumbers(params *parameter) []int {
 	max := int(math.Floor(maxSquareRoot))
 
 	for num := min; num <= max; num++ {
-		result = append(result, num * num)
+		result = append(result, num*num)
 	}
 
 	return result
@@ -122,7 +124,7 @@ func generateCubeNumbers(params *parameter) []int {
 	max := int(math.Floor(maxCubeRoot))
 
 	for num := min; num <= max; num++ {
-		result = append(result, num * num * num)
+		result = append(result, num*num*num)
 	}
 
 	return result
@@ -197,24 +199,28 @@ func promptMinMax(scanner *bufio.Scanner, params *parameter, sequenceType string
 	var input string
 
 	for true {
-		input = getInput(scanner, "\n>>> Minimum number (optional, default=0, type t to choose other type): ")
+		params.min = 0
 
-		if input == "" {
-			params.min = 0
-		} else {
-			if input == "t" {
-				break
-			}
+		if sequenceType == "even" || sequenceType == "odd" || sequenceType == "cube" {
+			input = getInput(scanner, "\n>>> Minimum number (optional, default=0, type t to choose other type): ")
 
-			min, err := strconv.Atoi(input)
-			if err != nil {
-				fmt.Println("\nInvalid input. You can only type a number or t.")
-				continue
+			if input == "" {
+				params.min = 0
+			} else {
+				if input == "t" {
+					break
+				}
+
+				min, err := strconv.Atoi(input)
+				if err != nil {
+					fmt.Println("\nInvalid input. You can only type a number or t.")
+					continue
+				}
+				params.min = min
 			}
-			params.min = min
 		}
 
-		input = getInput(scanner, ">>> Maximum number (type t to choose other type): ")
+		input = getInput(scanner, "\n>>> Maximum number (type t to choose other type): ")
 
 		if input == "" {
 			fmt.Println("\nMaximum number is required")
@@ -243,5 +249,6 @@ func getSequenceTypeOptions() map[string]string {
 		"3": "square",
 		"4": "cube",
 		"5": "fibonacci",
+		"6": "prime",
 	}
 }
