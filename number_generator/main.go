@@ -36,19 +36,25 @@ func main() {
 			break
 		}
 
-		switch sequenceTypes[input] {
-		case "even":
-			promptMinMax(scanner, params, sequenceTypes[input], generateEvenNumbers)
-		case "odd":
-			promptMinMax(scanner, params, sequenceTypes[input], generateOddNumbers)
-		case "square":
-			promptMinMax(scanner, params, sequenceTypes[input], generateSquareNumbers)
-		case "cube":
-			promptMinMax(scanner, params, sequenceTypes[input], generateCubeNumbers)
-		case "fibonacci":
-			promptMinMax(scanner, params, sequenceTypes[input], generateFibonacciNumbers)
-		case "prime":
-			promptMinMax(scanner, params, sequenceTypes[input], generatePrimeNumbers)
+		choice, err := strconv.Atoi(input)
+		if err != nil {
+			fmt.Println("\nYou can only choose 1, 2, 3, 4, 5, or 6.")
+			continue
+		}
+
+		switch choice {
+		case sequenceTypes["even"]:
+			promptMinMax(scanner, params, "even", generateEvenNumbers)
+		case sequenceTypes["odd"]:
+			promptMinMax(scanner, params, "odd", generateOddNumbers)
+		case sequenceTypes["square"]:
+			promptMinMax(scanner, params, "square", generateSquareNumbers)
+		case sequenceTypes["cube"]:
+			promptMinMax(scanner, params, "cube", generateCubeNumbers)
+		case sequenceTypes["fibonacci"]:
+			promptMinMax(scanner, params, "fibonacci", generateFibonacciNumbers)
+		case sequenceTypes["prime"]:
+			promptMinMax(scanner, params, "prime", generatePrimeNumbers)
 		default:
 			fmt.Println("\nInvalid sequence type. You can only type 1, 2, 3, 4, 5, or 6.")
 			continue
@@ -242,13 +248,13 @@ func promptMinMax(scanner *bufio.Scanner, params *parameter, sequenceType string
 	}
 }
 
-func getSequenceTypeOptions() map[string]string {
-	return map[string]string{
-		"1": "even",
-		"2": "odd",
-		"3": "square",
-		"4": "cube",
-		"5": "fibonacci",
-		"6": "prime",
+func getSequenceTypeOptions() map[string]int {
+	return map[string]int{
+		"even": 1,
+		"odd": 2,
+		"square": 3,
+		"cube": 4,
+		"fibonacci": 5,
+		"prime": 6,
 	}
 }
