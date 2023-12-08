@@ -22,7 +22,7 @@ This is a collection of mini programs in Go. I created this repo just to keep me
 
 | **Program**                                  | **Description**                                                                                                        |
 | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| [Black & White Image](./black_white_image)   | Convert color image to black & white.                                                                                  |
+| [Black & White Image](./black_white_image)   | Convert color image to black & white image.                                                                            |
 | [File Organizer](./file_organizer)           | Organize files in a folder based on type.                                                                              |
 | [Guess the Number](./guess_number)           | Play & guess the number that the computer thinks.                                                                      |
 | [Link Checker](./link_checker)               | Check & get information about a URL.                                                                                   |
@@ -30,6 +30,7 @@ This is a collection of mini programs in Go. I created this repo just to keep me
 | [Number Generator](./number_generator)       | Generate prime, even, odd, square, cube, or Fibonacci numbers within a certain range.                                  |
 | [Rock Paper Scissors](./rock_paper_scissors) | A simple game which you & the computer will pick rock, paper, or scissors, then the program decides who the winner is. |
 | [Send Email](./send_email)                   | Send email from the command-line.                                                                                      |
+| [TCP Chat](./tcp_chat)                       | Communicate in real-time over a TCP connection.                                                                        |
 
 ## Contributing
 

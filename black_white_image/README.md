@@ -1,6 +1,6 @@
 # Black & White Image
 
-Convert color image to black & white.
+Convert color image to black & white image.
 
 ## Usage
 
